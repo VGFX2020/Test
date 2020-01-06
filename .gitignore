@@ -1,5 +1,6 @@
 # ignoriši sve css datoteke bilo gde u css folderu:
 css/**/*.css
+css/
 
 # ignorisi Zadatak.txt fajl
 Zadatak.txt

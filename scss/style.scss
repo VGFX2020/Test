@@ -1,0 +1,47 @@
+@import 'mixins';
+@import 'variables';
+@import 'functions';
+
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: $mainFont;
+    @include all-headings;
+}
+//--------------------Header styles----------------------
+header{
+    background-color: color(secondary);
+    height:70px;
+    @include flexCenter;
+    
+    .logoContainer{
+        @include flexCenter;
+        width:300px;
+        height:100%;
+        background-color: color(primary);
+        img{
+            width:50px;
+        }
+        .place{
+            @include logoText;
+        }
+    }
+    nav{
+        width:80%;
+        ul{
+            
+            li{
+               display:inline-block;
+               padding:0px 40px;
+               a{
+                   @include links;
+               }
+            }
+        }
+    }
+}
+//---------------------------------------------------------

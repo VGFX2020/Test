@@ -1,0 +1,29 @@
+@mixin all-headings{
+    h1, h2, h3, h4{
+        color:color(headingColor);
+    }
+}
+
+@mixin links{
+    text-decoration: none;
+    color:color(light);
+    transition-duration: 600ms;
+    transition-property: text-decoration;
+    &:hover{
+        
+        text-decoration: underline;
+    }
+}
+
+@mixin logoText{
+    text-decoration:underline;
+    color:color(light);
+    font-size:18px;
+    
+}
+
+@mixin flexCenter{
+    display:flex;
+    align-items: center;
+}
+
