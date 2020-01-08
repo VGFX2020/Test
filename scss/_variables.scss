@@ -4,8 +4,16 @@ $colors:(
     fontColor:#797979,
     headingColor:#374249,
     buttonHover:#cfd1d3,
-    sectionColor:#f3f7f9,
-    light:#ffffff
+    sectionColor:#f1f1f1,
+    light:#ffffff,
+    lightTransparent:rgba(255, 255, 255, 0.8),
+    transparent:rgba(36, 36, 36, 0.473)
 );
 
 $mainFont: 'Roboto', sans-serif;
+
+$font-size:18px;
+
+
+$tablet-width:740px;
+$desktop-width:1024px;

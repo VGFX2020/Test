@@ -1,4 +1,4 @@
-ZADATAK: 
+﻿ZADATAK: 
 	Korišćenjem HTML i Sass tehnologija realizovati HTML stranicu prikazanu na slikama.
 	Implementirati sledeće zahteve:
 
@@ -21,6 +21,8 @@ BOJE:
 	Naslovi: #374249
 	Svetlo siva 1 (hover na dugmice): #cfd1d3
 	Svetlo siva 2 (pozadina sekcija): #f3f7f9
+
+	border:1px solid black;
 
 WEB FONTOVI: 
 	Roboto

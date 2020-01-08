@@ -5,24 +5,26 @@
 *{
     margin:0px;
     padding: 0px;
-    box-sizing: border-box;
+    @include boxBorderBox;
 }
 
 body{
+    
     font-family: $mainFont;
     @include all-headings;
 }
-//--------------------Header styles----------------------
+
 header{
     background-color: color(secondary);
     height:70px;
-    @include flexCenter;
+    @include display-flex(row, center, center);
     
     .logoContainer{
-        @include flexCenter;
+        @include display-flex(row, center, center);
         width:300px;
         height:100%;
         background-color: color(primary);
+        
         img{
             width:50px;
         }
@@ -30,12 +32,15 @@ header{
             @include logoText;
         }
     }
+    
     nav{
-        width:80%;
+        width:100%;
         ul{
-            
+            @include display-flex(row,center,flex-start);
+            list-style-type: none;
+            cursor: pointer;
             li{
-               display:inline-block;
+               
                padding:0px 40px;
                a{
                    @include links;
@@ -44,4 +49,415 @@ header{
         }
     }
 }
-//---------------------------------------------------------
+
+.home-showcase{
+    @include flexCenterEnd;
+    @include backgroundImage;
+    min-height: 90vh;
+    text-align: center;
+   
+    .wrapper{
+        width:70%;
+        background:color(transparent);
+        margin-bottom: 7%;
+        h1{
+            color:color(light);
+            font-weight:300;
+        }
+        p{
+            color:color(light);
+        }
+    }
+
+}
+
+.pagination{
+    min-height:100px;
+    @include display-flex(row,center,flex-end);
+    width:80%;
+    margin:auto;
+    
+
+    .pill{
+        border-radius:30px;
+        padding:15px 20px;
+        -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+        margin-right:15px;
+        margin-left:15px;
+        font-size: 16px;
+        background-color: color(light);
+        border:1px solid gray;
+        @include btnHover(300ms);
+        
+        &:hover{
+            background:color(buttonHover);
+            color:color(light);
+            cursor: pointer;
+            @include transformScale(1.1);
+        }
+    }
+
+
+}
+
+.main{
+    background-color: color(sectionColor);
+    padding:1em;
+}
+    
+.boxes{
+    display:flex;
+    align-items: center;
+    width:80%;
+    flex-wrap:wrap;
+    margin:0 auto;
+        
+    .box{
+        width:20%;
+        margin:1em;
+        position: relative;
+        cursor: pointer;
+
+        .box-overlay{
+            opacity: 0;
+            position: absolute;
+            width:100%;
+            height:0px;
+            background-color: color(lightTransparent);
+            transition:all .3s ease;
+            padding:1em;
+            font-weight:500;
+        }
+
+        &:hover .box-overlay{
+            opacity: 1;
+            width: 100%;
+            height:100px;
+        }
+        
+        img{
+            width:100%;
+            
+            
+        }
+
+    }
+
+}
+
+.pricing{
+    width:100%;
+    //padding:15px;
+    background:color(light);
+    @include display-flex(row, center, center);
+
+    .pricing-wrapper{
+        @include display-flex(column,center,space-between);
+        margin:50px;
+        text-align:center;
+        width:800px;
+
+        .tabelaCena{
+            border-collapse: collapse;
+            border:1px solid black;
+            th, td {
+            padding: .5em;
+            border:1px solid black;
+		}
+
+        }
+
+
+
+
+        h2{
+            margin-bottom: 1rem;;
+        }
+        .pricingTable {
+		width: 100%;
+		margin: 3em auto;
+		border-collapse: collapse;
+
+		th, td {
+			padding: .5em;
+		}
+
+		.orange {
+			background: orange;
+			color: #fff;
+		}
+
+		.darkCol {
+			background: color(secondary);
+			color: #fff;
+			font-weight: bold;
+		}
+
+		thead {
+			.darkCol {
+				border-right: 1px solid gray;
+			}
+		}
+
+		tbody {
+			td {
+				border: 1px solid gray;
+			}
+        }
+        
+        
+	}
+
+    }
+}
+
+.nova{
+    width:100%;
+    border-collapse: collapse;
+    margin: 3em auto;
+    th,td {
+        
+        padding: 0.5em;
+    }
+
+    .orange{
+        background-color:orange;
+        color:color(light);
+        text-transform: capitalize;
+    }
+
+    .gray{
+        background-color:rgb(41, 39, 39);
+        color:white;
+        border-right: 1px solid rgb(56, 56, 56);
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    td{
+       border: 1px solid rgb(77, 77, 77); 
+    }
+}
+
+.new{
+    width:100%;
+    border-collapse: collapse;
+
+    th, td{
+        padding:1em;
+        
+    }
+
+    td{
+        @include border;
+    }
+
+   
+
+    .orange{
+        background-color:orange;
+        color:color(light);
+    }
+
+    .gray{
+        background-color:rgb(41, 39, 39);
+        color:white;
+        border-right: 1px solid rgb(56, 56, 56);
+        font-weight: bold;
+    }
+}
+
+.contact{
+    min-height:60vh;
+    background:color(sectionColor);
+    padding-top:5%;
+    width:100%;
+    
+    
+    .content{
+        width:80%;
+
+        @include display-flex(row,flex-start,center);
+        form{
+            margin-left: 2em;;
+            padding:1em;
+            background:color(primary);
+            width:50%;
+
+            .contactInput{
+            float: left;
+                padding: .5em;
+                color: black;
+                border: none;
+                margin: 1em;
+            }
+            select{
+                width:20%;
+            }
+
+            input[type="text"]{
+                width: 70%;
+                // clear: both;
+            }
+
+            input[type="email"]{
+                width:96%;
+            }
+            textarea.contactInput{
+                width:96%;
+            }
+        }
+    }
+    
+}
+
+.contactOne{
+    min-height: 100%;
+    background: #99c5e2;
+    padding:2em;
+    text-align:center;
+    .wrapper{
+        
+        @include display-flex(row,flex-start,space-between);
+        width:80%;
+        margin:3em auto;
+        .wraper-map{
+            border:1px solid black;
+            text-align: center;
+            width:30%;
+            overflow: hidden;
+            
+        }
+
+        .wraper-contactForm{
+            width:60%;
+            border:1px solid black;
+            margin-left:1em;
+            .contactForm{
+                padding:1em;
+                
+                background:#ee4747;
+
+                input, textarea, select{
+                    display:block;
+                    width:100%;
+                    margin:1em 0;
+                    padding:1em 0.25em;
+                }
+            }
+
+        }
+        
+    
+
+    } 
+    
+    clear:both;
+}
+
+
+
+
+// Media Queries styles 
+@include tablet{
+
+    .main{
+        
+        .boxes{
+           justify-content: center;
+           
+           .box{
+                width:40%;
+                
+                img{
+                    height:300px;
+                }
+            }
+        }
+    }
+
+    .contactOne{
+
+        .wrapper{
+            @include display-flex(column, center, space);
+            
+            .wraper-contactForm{
+                width:100%;
+            }
+        }
+    }
+}
+
+@include phone{
+
+    header{
+        height:100%;
+        @include display-flex(column,center,center);
+        
+        .logoContainer{
+            width:100%;
+            @include display-flex(row,center,flex-start);
+        }
+
+        nav{
+
+            ul{
+                min-height:200px;
+                @include display-flex(column, center, space-around);
+                cursor: pointer;
+                
+            }
+        }
+    }
+
+    .home-showcase{
+        background:black;
+        min-height:30vh;
+
+        .wrapper{
+            background-color: black;
+            text-align:center;
+            h1{
+                font-size:45px;
+            }
+        }
+    }
+
+    .pagination{
+        width:100%;
+        min-height:20vh;
+        @include display-flex(row,center,space-around);
+
+        .pill{
+            font-size: 14px;
+        }
+    }
+
+    .main{
+        
+        .boxes{
+            width:100%;
+            justify-content: center;
+            margin:0;
+
+            .box{
+                width:100%;
+                
+                img{
+                    height:300px;
+                }
+                
+            }
+        }
+    }
+
+    .contact{
+        min-height:100vh;
+        padding:5% auto;
+        .content{
+            @include display-flex(column,center,center);
+            
+        }
+    }
+}
